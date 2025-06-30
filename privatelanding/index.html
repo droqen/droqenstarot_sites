@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>droqen's tarot - secret area</title>
+		<link rel="icon" href="favicon.png">
+		<style>
+			div#images {
+				width:100%;
+				text-align: center;
+				margin: 20px 0;
+			}
+			div#images img {
+				border-radius: 20px; height: 350px; filter: blur(1px);
+			}
+			@font-face {
+				font-family: 'Pecita';
+				src: url('Pecita.otf') format('opentype');
+				font-weight: normal;
+				font-style: normal;
+			}
+			div#title {
+				text-align: center; font-family: Pecita, sans-serif; margin: 40px 0; font-size: 3em; 
+			}
+			div#content {
+				position: absolute;
+				margin: 20px 0;
+				left: 50%;
+				margin-left: -250px;
+				width: 500px;
+			}
+			p, form label { font-family: 'Arial Narrow', Arial, sans-serif; }
+			.handwritten { font-family: Pecita, serif; }
+			#mailingsignup { text-align: center; }
+		</style>
+	</head>
+	<body>
+		<div id="title">
+			droqen's tarot (secret area)
+		</div>
+		<div id="images">
+			<img src="cardback.png" />
+			<img src="droqens_tarot_head.jpg" />
+		</div>
+		<div id="content">
+			<p>
+				<a href="https://www.droqen.com/tarot/">back to public area</a>
+				<br/><br/>
+				hi, thank you so much for buying my tarot deck!
+				normally, a tarot deck will come with a guidebook,
+				but all i've written are a set of light prompts for each card
+				and i'm not yet ready to commit those to ink & paper.
+				<br/><br/>
+				however, in case you're really new to tarot,
+				i have a few options for you to get started:
+				<br/><br/>
+				1. <a href="guide.html">my quick online guidebook tool</a>
+				<br/><br/>
+				2. <a href="https://secretforum.droqen.com/">a small forum</a> for sharing tips & discussing (or just saying hi)
+				<br/><br/>
+				finally, if you're interested in getting updates on new version of the tarot deck
+				or whenever i figure out a guidebook etc., you can sign up for the mailing list below.
+			</p>
+			<form action="https://php.droqen.com/sendy/subscribe" method="POST" accept-charset="utf-8" id="mailingsignup">
+				<label for="name">name:</label><br/>
+				<input type="text" name="name" id="name"/>
+				<br/>
+				<label for="email">email:</label><br/>
+				<input type="email" name="email" id="email"/><br/><div style="display:none;">
+				<label for="hp">HP</label><br/>
+				<input type="text" name="hp" id="hp"/>
+				</div>
+				<input type="hidden" name="list" value="g8ZtJx5sbdtjUK4fMQT3fQ"/>
+				<input type="hidden" name="subform" value="yes"/>
+				<br/>
+				<input type="submit" name="submit" id="submit" value="JOIN MAILING LIST" style="cursor:pointer"/>
+			</form>
+			<p>
+				i am also on social media! sometimes active on <a href="https://bsky.app/profile/droqen.bsky.social">bluesky</a>, not very active on <a href="https://www.instagram.com/droqen2">instagram</a>.
+			</p>
+			<p class="handwritten">love, droqen ~ june 15, 2025</p>
+		</div>
+	</body>
+</html>

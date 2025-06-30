@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>droqen's tarot - lookup tool</title>
+		<link rel="icon" href="favicon.png">
+		<style>
+			div#images {
+				width:100%;
+				text-align: center;
+				margin: 20px 0;
+			}
+			div#images img {
+				border-radius: 20px; height: 350px; filter: blur(1px);
+			}
+			@font-face {
+				font-family: 'Pecita';
+				src: url('Pecita.otf') format('opentype');
+				font-weight: normal;
+				font-style: normal;
+			}
+			div#title {
+				text-align: center; font-family: Pecita, sans-serif; margin: 40px 0; font-size: 3em; 
+			}
+			div#content-wrapper {
+				display: flex;
+				justify-content: center;
+			}
+			div#content {
+				max-width: 500px;
+				margin: 20px 0;
+			}
+			p, form label { font-family: 'Arial Narrow', Arial, sans-serif; text-align: justify; }
+			.handwritten { font-family: Pecita, serif; }
+			#mailingsignup { text-align: center; }
+
+
+			#minor_or_court, #major_radios, #large_category_radios {
+				display: flex;
+				justify-content: center;
+				border: 1px solid #aaa;
+				padding: 5px 0;
+			}
+			#result {
+				border: 1px solid #aaa;
+				padding: 5px;
+				text-align: justify;;
+			}
+			#minor_or_court #of {
+				padding: 20px;
+			}
+			input[type=radio] {
+				background: #aaa;
+			}
+			label {
+				user-select: none;
+				cursor: pointer;
+				background: #ffa;
+				padding: 3px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="title">
+			droqen's tarot - lookup tool
+		</div>
+		<div id="content-wrapper">
+		<div id="content">
+			<p>
+				this is not a how-to-tarot guide at all,
+				just a tool for looking up individual cards that you might find handy!
+				it will give you a small prompt that i wrote for my (currently unreleased) app,
+				as well as link you out to my favourite tarot interpretation website.
+			</p>
+			<div id="large_category_radios">
+				<input type="radio" name="large_category" value="minor" id="lc_minor"><label for="lc_minor">Minor (2-10)</label>
+				<input type="radio" name="large_category" value="court" id="lc_court"><label for="lc_court">Court (A-K)</label>
+				<input type="radio" name="large_category" value="major" id="lc_major"><label for="lc_major">Major (O-XXI)</label>
+			</div>
+			<br/>
+			<div id="minor_or_court" style="display: none;">
+				<div id="minor_radios" style="display: none;">
+					<input type="radio" name="minor_category" value="two" id="mic_2"><label for="mic_2">Two</label><br/>
+					<input type="radio" name="minor_category" value="three" id="mic_3"><label for="mic_3">Three</label><br/>
+					<input type="radio" name="minor_category" value="four" id="mic_4"><label for="mic_4">Four</label><br/>
+					<input type="radio" name="minor_category" value="five" id="mic_5"><label for="mic_5">Five</label><br/>
+					<input type="radio" name="minor_category" value="six" id="mic_6"><label for="mic_6">Six</label><br/>
+					<input type="radio" name="minor_category" value="seven" id="mic_7"><label for="mic_7">Seven</label><br/>
+					<input type="radio" name="minor_category" value="eight" id="mic_8"><label for="mic_8">Eight</label><br/>
+					<input type="radio" name="minor_category" value="nine" id="mic_9"><label for="mic_9">Nine</label><br/>
+					<input type="radio" name="minor_category" value="ten" id="mic_10"><label for="mic_10">Ten</label><br/>
+				</div>
+				<div id="court_radios" style="display: none;">
+					<input type="radio" name="court_category" value="ace" id="cc_ace"><label for="cc_ace">Ace</label><br/>
+					<input type="radio" name="court_category" value="page" id="cc_page"><label for="cc_page">Page</label><br/>
+					<input type="radio" name="court_category" value="knight" id="cc_knight"><label for="cc_knight">Knight</label><br/>
+					<input type="radio" name="court_category" value="queen" id="cc_queen"><label for="cc_queen">Queen</label><br/>
+					<input type="radio" name="court_category" value="king" id="cc_king"><label for="cc_king">King</label><br/>
+				</div>
+				<div id="of">of</div>
+				<div id="suit_radios">
+					<input type="radio" name="suit_category" value="wands" id="sc_wands"><label for="sc_wands">Wands</label><br/>
+					<input type="radio" name="suit_category" value="cups" id="sc_cups"><label for="sc_cups">Cups</label><br/>
+					<input type="radio" name="suit_category" value="swords" id="sc_swords"><label for="sc_swords">Swords</label><br/>
+					<input type="radio" name="suit_category" value="coins" id="sc_coins"><label for="sc_coins">Coins</label><br/>
+				</div>
+			</div>
+			<div id="major_radios" style="display: none;">
+				<div class="flexcol">
+					<input type="radio" name="major_category" value="the fool" id="mac_0"><label for="mac_0">O. The Fool</label><br/>
+					<input type="radio" name="major_category" value="the magician" id="mac_1"><label for="mac_1">I. The Magician</label><br/>
+					<input type="radio" name="major_category" value="the high priestess" id="mac_2"><label for="mac_2">II. The High Priestess</label><br/>
+					<input type="radio" name="major_category" value="the empress" id="mac_3"><label for="mac_3">III. The Empress</label><br/>
+					<input type="radio" name="major_category" value="the emperor" id="mac_4"><label for="mac_4">IV. The Emperor</label><br/>
+					<input type="radio" name="major_category" value="the hierophant" id="mac_5"><label for="mac_5">V. The Hierophant</label><br/>
+					<input type="radio" name="major_category" value="the lovers" id="mac_6"><label for="mac_6">VI. The Lovers</label><br/>
+					<input type="radio" name="major_category" value="the chariot" id="mac_7"><label for="mac_7">VII. The Chariot</label><br/>
+					<input type="radio" name="major_category" value="strength" id="mac_8"><label for="mac_8">VIII. Strength</label><br/>
+					<input type="radio" name="major_category" value="the hermit" id="mac_9"><label for="mac_9">IX. The Hermit</label><br/>
+					<input type="radio" name="major_category" value="the wheel of fortune" id="mac_10"><label for="mac_10">X. Wheel of Fortune</label><br/>
+				</div>
+				<div class="flexcol">
+					<input type="radio" name="major_category" value="justice" id="mac_11"><label for="mac_11">XI. Justice</label><br/>
+					<input type="radio" name="major_category" value="the hanged man" id="mac_12"><label for="mac_12">XII. The Hanged Man</label><br/>
+					<input type="radio" name="major_category" value="death" id="mac_13"><label for="mac_13">XIII. Death</label><br/>
+					<input type="radio" name="major_category" value="temperance" id="mac_14"><label for="mac_14">XIV. Temperance</label><br/>
+					<input type="radio" name="major_category" value="the devil" id="mac_15"><label for="mac_15">XV. The Devil</label><br/>
+					<input type="radio" name="major_category" value="the tower" id="mac_16"><label for="mac_16">XVI. The Tower</label><br/>
+					<input type="radio" name="major_category" value="the star" id="mac_17"><label for="mac_17">XVII. The Star</label><br/>
+					<input type="radio" name="major_category" value="the moon" id="mac_18"><label for="mac_18">XVIII. The Moon</label><br/>
+					<input type="radio" name="major_category" value="the sun" id="mac_19"><label for="mac_19">XIX. The Sun</label><br/>
+					<input type="radio" name="major_category" value="judgement" id="mac_20"><label for="mac_20">XX. Judgement</label><br/>
+					<input type="radio" name="major_category" value="the world" id="mac_21"><label for="mac_21">XXI. The World</label><br/>
+				</div>
+			</div>
+			<br/>
+			<div id="result" style="display:none;">
+				<div id="result_main" style="font-size: 1.5em; text-align: center;">
+					main thing
+				</div>
+				<div style="text-align: center; font-weight: bold; font-size: 1.5em; margin: 1em 0;">
+					ask...
+				</div>
+				<div id="result_ask" style="font-style: italic; color:#333; font-size: 1.25em; margin: 1em 0; text-align: center;">
+					asked thing
+				</div>
+				<div id="lablinkcontainer" style="text-align: right; color: #777; font-family: monospace;">
+					<a id="lablink">more</a>
+				</div>
+			</div>
+		</div>
+		</div>
+	</body>
+	<script>
+		const cardprompts = {
+			'the fool':['A BLANK SLATE. WITHOUT KNOWLEDGE OF THE LIMITATIONS, ANYTHING SEEMS POSSIBLE.','what do i love by accident?'],
+			'the magician':['THE DESIRE TO REALIZE PURE POTENTIAL AND USE THE TOOLS AT HAND.','what makes me powerful?'],
+			'the high priestess':['QUIET THE MIND. LISTEN TO THE UNCONSCIOUS VOICE THAT CAN BE HEARD ONLY IN SILENCE.','what can help to clear away distractions?'],
+			'the empress':['THE WORLD IS ALWAYS BEING REBORN AND YOU ARE ALIVE.','what is being born right now?'],
+			'the emperor':['RULING OVER A POWERFUL DOMAIN REQUIRES DETERMINED STRUCTURE.','for what reason was the domain established?'],
+			'the hierophant':['THE ANCIENT WAYS THAT HAVE BEEN PASSED DOWN HAVE A TIMELESS VALUE THAT CANNOT BE DISMISSED.','what timeless truth will i discover if i do it exactly the way it\'s always been done?'],
+			'the lovers':['HARMONY REQUIRES CHOICE, AND YOU MUST MAKE A CHOICE IN PURSUIT OF SUCH HARMONY.','what am i scared of?'],
+			'the chariot':['EITHER MODE OF TRANSPORTATION WILL DO. WHAT MATTERS IS CHOOSING AND GETTING IN MOTION. RIDE THE CHARIOT OF YOUR CHOICE, AND THE REST WILL RIDE ALONGSIDE YOU.','who or what will i encounter along the way?'],
+			'strength':['THE BEAST THAT CANNOT BE STOPPED CAN BE HARNESSED FOR GOOD.','what part of me is unstoppable?'],
+			'the hermit':['ALONE ON THE MOUNTAIN YOUR MANY PARTS COME OUT TO PLAY.','what do i bring back from my pilgrimage?'],
+			'the wheel of fortune':['THE OUTCOME IS SUBJECT TO COUNTLESS FORCES OUTSIDE OF YOUR CONTROL OR PERCEPTION.','how can i accept the seeming randomness of fate?'],
+			'justice':['YOUR ACTIONS AND THE ACTIONS OF OTHERS HAVE CONSEQUENCES. IF SOMEONE IS IN THE WRONG, THEY WILL PAY FOR IT.','how will i feel when justice has been done?'],
+			'the hanged man':['YOU ARE STILL, AND NOT STRUGGLING. YOUR SUSPENSION IS A WILLING SACRIFICE.','why is this predicament necessary for moving forward? what does forward look like to me?'],
+			'death':['SOMETHING ALIVE IS COMING TO AN END, AS ALL LIVING THINGS MUST.','when it passes, what will finally reveal itself to me?'],
+			'temperance':['IN MOMENTS OF SERENITY WE SEE THE BIGGER PICTURE.','in what moments have i found unexpected calm?'],
+			'the devil':['COMPELLING DESIGNS KEEP YOU TRAPPED IN A LOOP, GOING NOWHERE.','what can be done to retake my power?'],
+			'the tower':['EVERYTHING IS WRONG. CONSIDER THE POSSIBILITY THAT IT MUST ALL BE DESTROYED, THAT IT WILL ALL START ANEW.','what could be so fundamentally wrong?'],
+			'the star':['THE TORRENT THAT DROWNS IS ALSO PURE LIFE-GIVING ENERGY.','how can i channel it, and into what action?'],
+			'the moon':['DARKNESS OBSCURES LINES BETWEEN OPPOSITES, AND ONLY OUR FULL INTUITION CAN GUIDE US THROUGH AMBIGUITY.','what\'s the worst that can happen, wandering through the dark with my eyes closed?'],
+			'the sun':['YOUR CONFIDENCE IN THE FUTURE RADIATES OUTWARD, ATTRACTING AND INSPIRING HOPE.','what unspoken truth has been illuminated by the light?'],
+			'judgement':['ONLY YOU CAN JUDGE YOURSELF. AND AT THE MOMENT, YOU FIND THAT YOU MUST.','what do i really think?'],
+			'the world':['EVERYTHING IS RIGHT, ALL AT THE SAME TIME. CONSIDER THE POSSIBILITY THAT ABSOLUTE SUCCESS IS POSSIBLE, AND THAT IT IS ALREADY HERE.','what comes next?'],
+			'ace of coins':['you are just beginning to invest in something good, something secure, that will take you to the top of the mountain you wish to climb.','what will help me with my climb?'],
+			'ace of cups':['your cup is overflowing with new and positive emotion, if you are ready to drink.','what will come along with all this new feeling?'],
+			'ace of swords':['you\'re realizing something incredible for the first time, separating an old lie into more truthful components.','what does this mean?'],
+			'ace of wands':['you have just barely managed to hold on to a new inspiration, and you can already see the bright light on the horizon.','what makes me so certain that this light is mine to pursue?'],
+			'two of coins':['you are at this moment gracefully hanging on to two opposites.','how am i managing to balance?'],
+			'two of cups':['your emotion is deeply entwined with another\'s.','what have i forgotten connects us?'],
+			'two of swords':['you\'re avoiding making an unpleasant choice.','what am i really making a decision about?'],
+			'two of wands':['you see all that must be done, laid out before you.','when do i get started?'],
+			'three of coins':['you\'re productively working with others who see things differently.','how can i celebrate my individual strength?'],
+			'three of cups':['your friends are together with you.','what distance can no longer keep us apart?'],
+			'three of swords':['your heart is breaking.','what will i ever do with this pain?'],
+			'three of wands':['you are equipped to begin your adventure. it\'s not the only thing you\'ll need, but it\'s something.','what else do i need?'],
+			'four of coins':['you\'re clinging onto all that you think you have.','what am i forgetting to look for?'],
+			'four of cups':['you are rejecting offers or opportunities for connection.','why am i saying no?'],
+			'four of swords':['you are bleeding but the battle is over. this is a moment for rest and repose.','what was the nature of the conflict? how do i know it\'s really done?'],
+			'four of wands':['you have returned to the place that you call home.','what am i bringing home? what do i want to celebrate with everyone?'],
+			'five of coins':['you are separated from something important and fear you might never find it again.','what does life look like without it?'],
+			'five of cups':['you are cut off from your past and grieving.','how will i know when i am ready to turn to the future again?'],
+			'five of swords':['you\'re winning the battle against your enemies conclusively. it\'s not without casualties.','but why do i have enemies? why are we enemies?'],
+			'five of wands':['you are embroiled in a neverending conflict, getting nowhere.','why can\'t anyone win?'],
+			'six of coins':['you are giving or receiving something freely, too long withheld.','what imbalance is being corrected?'],
+			'six of cups':['your inner child is returning to you a gift that you\'ve always had.','why do i love this thing from the past so much?'],
+			'six of swords':['you\'re moving on, losing something along the way.','why am i sure i had to lose to grow?'],
+			'six of wands':['your achievements are being seen and recognized.','how will i react to this acknowledgement of my success?'],
+			'seven of coins':['you are enjoying the fruits of your labour, without over-indulging.','what is the tastiest fruit?'],
+			'seven of cups':['you\'re lost in all your dreams.','which dream is real?'],
+			'seven of swords':['you\'re getting away with something you think you shouldn\'t.','what would be the consequence of simply being honest?'],
+			'seven of wands':['you are defending your treasure.','why do i think i\'m under attack?'],
+			'eight of coins':['you\'re ensuring each detail turns out perfectly.','what detail am i overlooking, if any?'],
+			'eight of cups':['you are abandoning something that you think is incomplete.','what do i see at the end of this new dark road?'],
+			'eight of swords':['you\'re stuck thinking that you\'re trapped, but it\'s all in your head.','when did i start seeing things this way?'],
+			'eight of wands':['your movement is aligned with everything, and this means it\'s all moving rapidly in the right direction.','what was it that finally came into alignment, to arrive at this state of smooth motion?'],
+			'nine of coins':['you\'re enjoying much-deserved stability, safety, and security.','why wouldn\'t i just stay here forever?'],
+			'nine of cups':['your wish is being granted to your satisfaction.','now that i have what i want, what can i see from here?'],
+			'nine of swords':['you are deeply dreading something that you know is going to happen in the future.','is it really going to turn out this way? why do i feel responsible for this outcome?'],
+			'nine of wands':['you have done so much good work, and you know the final challenge will be the hardest, but rewarding.','what am i looking forward to?'],
+			'ten of coins':['you have created something that will last for a very long time. nothing lasts forever, but this might come close.','how is this beautiful future an extension of the past?'],
+			'ten of cups':['you are alive here, in this place of true belonging.','what makes this paradise?'],
+			'ten of swords':['you have been thoroughly defeated, and worse, it may be your own fault. there\'s nothing to be done; it\'s over.','only what will i do while i lie here suffering?'],
+			'ten of wands':['you\'re shouldering an impossible burden. you\'re responsible for it. it\'s been worth it, but it\'s not over yet.','when it\'s all over what will remain?'],
+			'page of coins':['the page is focused on the task at hand.','do i know what comes next?'],
+			'page of cups':['the page is happily surprised by the fish in my cup.','why can i not find my own fish so delightful?'],
+			'page of swords':['the page is prepared to cut down an obvious enemy.','what enemy is so obvious? why haven\'t i already done it myself?'],
+			'page of wands':['the page searches for the tower of your dreams.','if the tower of my dreams exists, why can\'t i find it myself?'],
+			'knight of coins':['the knight tends to your existing resources, not seeking out anything new.','what is already growing in my life? why haven\'t i been observing these things myself?'],
+			'knight of cups':['the knight rides out from the source, floating on your current state of mind.','how does the knight know me better than i know myself?'],
+			'knight of swords':['the knight directly moves to the destination, surmounting your every doubt.','what am i going to do when i arrive so much sooner than expected?'],
+			'knight of wands':['the knight leaves a trail of flame without hesitation, burning down anything and everything that might slow you down.','what is in my way? what keeps me from blazing through those obstacles myself?'],
+			'queen of coins':['the queen has been gathering resources and understands how to prepare for your future.','what have i been preparing for? have i been preparing all by myself?'],
+			'queen of cups':['the queen can accept your emotion and show it back to you more clearly.','what am i looking for in my reflection that i couldn\'t see alone?'],
+			'queen of swords':['the queen can already perceive your problem and knows the quickest solution.','what kept me from seeing as clearly? how can i accept the queen\'s judgement?'],
+			'queen of wands':['the queen knows the way and will walk alongside you on your way up, or down, wherever you want to be right now.','what will the queen do behind the scenes?'],
+			'king of coins':['the king provides what is needed, and hears out your most ambitious requests.','what do i sound like to the king\'s ears?'],
+			'king of cups':['the king tends to a vast garden that self-sustains, by pruning all desire that cannot withstand its own weight.','are my dreams seedlings or long overgrown? can\'t i see the difference?'],
+			'king of swords':['the king waits for opportunity to reveal itself, discerning right action from wrong.','am i ready for when the moment comes to act? why can i not recognize it alone?'],
+			'king of wands':['the king sets in motion all that grows, already watching the dominoes fall.','what is the future that i want? what do i need from the king so i can begin moving?'],
+		};
+
+
+		let minor_value = -1;
+		let court_value = -1;
+		let suit_value = -1;
+		function hideAllSections() {
+			minor_value = -1;
+			court_value = -1;
+			suit_value = -1;
+			document.getElementById('minor_or_court').style.display = 'none';
+			document.getElementById('minor_radios').style.display = 'none';
+			document.getElementById('court_radios').style.display = 'none';
+			document.getElementById('major_radios').style.display = 'none';
+			document.getElementById('result').style.display = 'none';
+		}
+		function clearAllSubRadios() {
+			var ele;
+			ele = document.getElementsByName("minor_category"); for(var i=0;i<ele.length;i++) ele[i].checked = false;
+			ele = document.getElementsByName("court_category"); for(var i=0;i<ele.length;i++) ele[i].checked = false;
+			ele = document.getElementsByName("suit_category"); for(var i=0;i<ele.length;i++) ele[i].checked = false;
+			ele = document.getElementsByName("major_category"); for(var i=0;i<ele.length;i++) ele[i].checked = false;
+		}
+		document.getElementById("lc_minor").addEventListener('change', (event)=>{
+			hideAllSections();
+			document.getElementById('minor_or_court').style.display = '';
+			document.getElementById('minor_radios').style.display = '';
+			clearAllSubRadios();
+		});
+		document.getElementById("lc_court").addEventListener('change', (event)=>{
+			hideAllSections();
+			document.getElementById('minor_or_court').style.display = '';
+			document.getElementById('court_radios').style.display = '';
+			clearAllSubRadios();
+		});
+		document.getElementById("lc_major").addEventListener('change', (event)=>{
+			hideAllSections();
+			document.getElementById('major_radios').style.display = '';
+			clearAllSubRadios();
+		});
+
+  		const major_radios = document.querySelectorAll('input[name="major_category"]');
+		major_radios.forEach(radio => {
+			radio.addEventListener('change', (event) => {
+				showCardPrompt(true, event.target.value);
+			});
+		});
+
+  		const minor_radios = document.querySelectorAll('input[name="minor_category"]');
+		minor_radios.forEach(radio => {
+			radio.addEventListener('change', (event) => {
+				minor_value = event.target.value;
+				tryShowMORCResult(minor_value, suit_value)
+			});
+		});
+
+
+  		const court_radios = document.querySelectorAll('input[name="court_category"]');
+		court_radios.forEach(radio => {
+			radio.addEventListener('change', (event) => {
+				court_value = event.target.value;
+				tryShowMORCResult(court_value, suit_value)
+			});
+		});
+
+
+  		const suit_radios = document.querySelectorAll('input[name="suit_category"]');
+		suit_radios.forEach(radio => {
+			radio.addEventListener('change', (event) => {
+				suit_value = event.target.value;
+				if (minor_value != -1) {
+					tryShowMORCResult(minor_value, suit_value);
+				}
+				if (court_value != -1) {
+					tryShowMORCResult(court_value, suit_value);
+				}
+			});
+		});
+
+		function tryShowMORCResult(morc,suit) {
+			console.log(morc, suit);
+			if (morc != -1 && suit != -1) {
+				showCardPrompt(false, morc+' of '+suit);
+			}
+		}
+
+		function showCardPrompt(is_major, cardname) {
+			const promptpair = cardprompts[cardname];
+			document.getElementById('result').style.display = '';
+			document.getElementById('result_main').innerHTML = promptpair[0];
+			document.getElementById('result_ask').innerHTML = promptpair[1];
+			let lablink = "https://labyrinthos.co/blogs/tarot-card-meanings-list/" + cardname.replaceAll(" ","-").replaceAll("-coins","-pentacles") + "-meaning-";
+			if (is_major) { lablink += "major-arcana-"; }
+			lablink += "tarot-card-meanings";
+			// document.getElementById("lablink").innerHTML = cardname;
+			document.getElementById("lablink").href = lablink;
+		}
+
+	</script>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>droqen's tarot</title>
+		<link rel="icon" href="favicon.png">
+		<style>
+			div#images {
+				width:100%;
+				text-align: center;
+				margin: 20px 0;
+			}
+			div#images img {
+				border-radius: 20px; height: 350px; filter: blur(1px);
+			}
+			@font-face {
+				font-family: 'Pecita';
+				src: url('Pecita.otf') format('opentype');
+				font-weight: normal;
+				font-style: normal;
+			}
+			div#title {
+				text-align: center; font-family: Pecita, sans-serif; margin: 40px 0; font-size: 5em; 
+			}
+			div#content-wrapper {
+				display: flex;
+				justify-content: center;
+			}
+			div#content {
+				max-width: 500px;
+				margin: 20px 0;
+			}
+			p, form label { font-family: 'Arial Narrow', Arial, sans-serif; text-align: justify; }
+			.handwritten { font-family: Pecita, serif; }
+			#mailingsignup { text-align: center; }
+		</style>
+	</head>
+	<body>
+		<div id="title">
+			droqen's tarot
+		</div>
+		<div id="images">
+			<img src="cardback.png" width="210" />
+			<img src="droqens_tarot_head.jpg" width="467" />
+		</div>
+		<div id="content-wrapper">
+		<div id="content">
+			<p>i made this tarot deck in my style for my use,
+				but people seem to like it, so i'm printing some to gauge interest.
+				if you're here because you bought a deck, congratulations! and thank you!
+				i've made a tool for looking up card interpretations,
+				and there's a small forum if you want to share anything there.
+				<br/><br/>
+				1. <a href="lookup.html">tool for looking up cards</a>
+				<br/><br/>
+				2. <a href="https://hidden.droqen.com/">droqen's hidden forum</a>
+			</p>
+			
+			<p>sign up to my mailing list for news on these <b>coming someday</b> items:
+				<br/> - tarot app (android only),
+				<br/> - better guidebook,
+				<br/> - maybe another print run of the physical deck!</p>
+			<form action="https://php.droqen.com/sendy/subscribe" method="POST" accept-charset="utf-8" id="mailingsignup">
+				<label for="name">name:</label><br/>
+				<input type="text" name="name" id="name"/>
+				<br/>
+				<label for="email">email:</label><br/>
+				<input type="email" name="email" id="email"/><br/><div style="display:none;">
+				<label for="hp">HP</label><br/>
+				<input type="text" name="hp" id="hp"/>
+				</div>
+				<input type="hidden" name="list" value="g8ZtJx5sbdtjUK4fMQT3fQ"/>
+				<input type="hidden" name="subform" value="yes"/>
+				<br/>
+				<input type="submit" name="submit" id="submit" value="JOIN MAILING LIST" style="cursor:pointer"/>
+			</form>
+			<p>
+				you can contact me directly via email (hello@droqen.com),
+				i am *sometimes* active on <a href="https://bsky.app/profile/droqen.bsky.social">bluesky</a>,
+				and i am on <a href="https://www.instagram.com/droqen2">instagram</a> (but not very active).
+				my dms are open.
+			</p>
+			<p class="handwritten">love, droqen ~ in the early morning of june 15, 2025</p>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<a href="https://droqen.com">back to droqen.com</a>
+			<br/>
+			<br/>
+		</div>
+		</div>
+	</body>
+</html>

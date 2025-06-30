@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>droqen's tarot - online guide</title>
+		<link rel="icon" href="favicon.png">
+		<style>
+			div#images {
+				width:100%;
+				text-align: center;
+				margin: 20px 0;
+			}
+			div#images img {
+				border-radius: 20px; height: 350px; filter: blur(1px);
+			}
+			@font-face {
+				font-family: 'Pecita';
+				src: url('Pecita.otf') format('opentype');
+				font-weight: normal;
+				font-style: normal;
+			}
+			div#title {
+				text-align: center; font-family: Pecita, sans-serif; margin: 40px 0; font-size: 3em;
+			}
+			div#content {
+				position: absolute;
+				margin: 20px 0;
+				left: 50%;
+				margin-left: -250px;
+				width: 500px;
+			}
+			p, form label { font-family: 'Arial Narrow', Arial, sans-serif; }
+			.handwritten { font-family: Pecita, serif; }
+			#mailingsignup { text-align: center; }
+		</style>
+	</head>
+	<body>
+		<div id="title">
+			droqen's tarot (online guide)
+		</div>
+		<div id="content">
+			<p>
+				this is not a how-to-tarot guide at all,
+				just a tool for looking up individual cards that you might find handy!
+				it will give you a small prompt that i wrote for my (currently unreleased) app,
+				as well as link you out to my favourite tarot interpretation website.
+			</p>
+			<h3>Minor Arcana</h3>
+			<form>
+				<select id="face" name="face">
+					<option value="1">Ace</option>
+					<option value="2">Two</option>
+					<option value="3">Three</option>
+				</select>
+				of
+				<select id="suit" name="suit">
+					<option value="1">Ace</option>
+					<option value="2">Two</option>
+					<option value="3">Three</option>
+				</select>
+				<label for="major_choices">Major Arcana</label>
+				<select id="major_choices" name="major_choices">
+					<option value="option1">Option 1</option>
+					<option value="option2">Option 2</option>
+					<option value="option3">Option 3</option>
+				</select>
+			</form>
+		</div>
+	</body>
+</html>
