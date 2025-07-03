@@ -30,7 +30,7 @@
 				max-width: 500px;
 				margin: 20px 0;
 			}
-			p, form label { font-family: 'Arial Narrow', Arial, sans-serif; text-align: justify; }
+			p, form label { font-family: sans-serif; text-align: justify; }
 			.handwritten { font-family: Pecita, serif; }
 			#mailingsignup { text-align: center; }
 
@@ -67,10 +67,7 @@
 		<div id="content-wrapper">
 		<div id="content">
 			<p>
-				this is not a how-to-tarot guide at all,
-				just a tool for looking up individual cards that you might find handy!
-				it will give you a small prompt that i wrote for my (currently unreleased) app,
-				as well as link you out to my favourite tarot interpretation website.
+				i'm working on a little guidebook for my deck, but this lookup tool of per-card prompts may help you in the meantime! please add yourself to the mailing list on <a href="index.html">the main page</a> if you'd like updates.
 			</p>
 			<div id="large_category_radios">
 				<input type="radio" name="large_category" value="minor" id="lc_minor"><label for="lc_minor">Minor (2-10)</label>
@@ -135,18 +132,21 @@
 			</div>
 			<br/>
 			<div id="result" style="display:none;">
-				<div id="result_main" style="font-size: 1.5em; text-align: center;">
-					main thing
-				</div>
-				<div style="text-align: center; font-weight: bold; font-size: 1.5em; margin: 1em 0;">
+				<br/>
+				<div style="text-align: left; font-style: italic; font-size: 1.25em; margin: 0 15%;">
 					ask...
 				</div>
-				<div id="result_ask" style="font-style: italic; color:#333; font-size: 1.25em; margin: 1em 0; text-align: center;">
+				<div id="result_ask" style="font-style: italic; font-weight: bold; color:#333; font-size: 1.5em; margin: 0 5%; text-align: center;">
 					asked thing
 				</div>
-				<div id="lablinkcontainer" style="text-align: right; color: #777; font-family: monospace;">
-					<a id="lablink">more</a>
+				<br/>
+				<div id="result_main" style="font-size: 0.8em; text-align: center; margin: 0 25%;">
+					main thing
 				</div>
+				<div id="lablinkcontainer" style="font-size: 1.0em; text-align: right; margin: 0 15%; color: #777; font-family: monospace;">
+					<a id="lablink">MORE&rarr; </a>
+				</div>
+				<br/>
 			</div>
 		</div>
 		</div>
