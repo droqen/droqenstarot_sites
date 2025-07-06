@@ -44,10 +44,13 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/droqen/droqenstarot_sites"
+		"/Users/droqen/droqenstarot_sites",
+		"/Users/droqen/droqenstarot_sites/publiclanding"
 	],
 	"file_history":
 	[
+		"/Users/droqen/droqenstarot_sites/publiclanding/lookup.html",
+		"/Users/droqen/droqenstarot_sites/publiclanding/index.html",
 		"/Users/droqen/droqen-dot-com/index.html",
 		"/Users/droqen/dataatask/instructions.txt",
 		"/Users/droqen/dataatask/jul2-308pm/diff",
@@ -77,7 +80,7 @@
 	],
 	"find":
 	{
-		"height": 24.0
+		"height": 38.0
 	},
 	"find_in_files":
 	{
@@ -91,6 +94,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			" ",
+			"lablinkcontainer"
 		],
 		"highlight": true,
 		"in_selection": false,
